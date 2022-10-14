@@ -27,6 +27,15 @@ module Jekyll
       tree = {}
 
       site.pages.each do |page|
+
+        skip = false
+        if site.config.has_key?('nav_tree') and site.config['nav_tree'].has_key?('excludes')
+          site.config['nav_tree']['excludes'].each do |exclude|
+            skip = true if File.fnmatch?(exclude, page.url)
+          end
+        end
+        next if skip == true
+
         if ! page.data.has_key? "nav_tree" || page.data["nav_tree"] == true
           #  page: #<Jekyll:Page @name="Motorola-Moto-E-2nd-Gen-XT1524-4G-LTE.md">
           path = page.url
