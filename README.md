@@ -3,7 +3,7 @@
 
 # jekyll-navigation-tree
 
-A jekyll plugin for building hierarchial navigation trees from pages.
+A Jekyll plugin for building hierarchial navigation trees from pages.
 
 ## Usage
 
